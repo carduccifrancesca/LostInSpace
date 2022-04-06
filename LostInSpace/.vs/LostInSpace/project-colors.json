@@ -10,7 +10,12 @@
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "File esterni",
       "ColorIndex": -1
+    },
+    "a5725601-3889-6f68-a9e2-6e4dc325c231": {
+      "ProjectGuid": "a5725601-3889-6f68-a9e2-6e4dc325c231",
+      "DisplayName": "Assembly-CSharp.Player",
+      "ColorIndex": 1
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 2
 }
