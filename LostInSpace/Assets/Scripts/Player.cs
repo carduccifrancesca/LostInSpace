@@ -5,8 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
-    Rigidbody2D body;
-    private float movement = 0f;
+    private Rigidbody2D body;
+    private float horizontalInput;
     public float speed = 10f;
 
     // Start is called before the first frame update
@@ -18,12 +18,25 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movement = Input.GetAxis("Horizontal");
+        horizontalInput = Input.GetAxis("Horizontal");
     }
 
      void FixedUpdate()
      {
-        Vector2 newVelocity = new Vector2(movement * speed, body.velocity.y);
+        Vector2 newVelocity = new Vector2(horizontalInput * speed, body.velocity.y);
         body.velocity = newVelocity;
-     }
+        float playerX = transform.localScale.x;
+
+        if (horizontalInput < -0.01f)
+        {
+            if (Mathf.Sign(playerX) > 0)
+                transform.localScale = new Vector3(-playerX, transform.localScale.y, transform.localScale.z);
+        }
+        else if (horizontalInput > 0.01f)
+        {
+            if (Mathf.Sign(playerX) < 0)
+                transform.localScale = new Vector3(-playerX, transform.localScale.y, transform.localScale.z);
+        }
+    }
+
 }
